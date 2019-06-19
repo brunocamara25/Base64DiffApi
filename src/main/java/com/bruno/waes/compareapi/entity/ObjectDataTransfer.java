@@ -15,7 +15,7 @@ import lombok.ToString;
 public class ObjectDataTransfer {
 
 	/**
-	 * Simple string variable that receives the json data
+	 * String variable that receives the json data
 	 */
 	@Getter @Setter
 	private String data;

@@ -17,12 +17,22 @@ import lombok.ToString;
 @Entity @EqualsAndHashCode @ToString
 public class DataEntity {
 
+	/**
+	 * Id unique identifier
+	 */
 	@Id @Getter @Setter
 	private long id;
+	/**
+	 * Right side of data
+	 */
 	@Lob
 	@Column(length = 10000)
 	@Getter @Setter
 	private String right;
+	
+	/**
+	 * Left side of data
+	 */
 	@Lob
 	@Column(length = 10000)
 	@Getter @Setter
@@ -30,14 +40,15 @@ public class DataEntity {
 	
 	public DataEntity() {}
 	
+	/**
+	 * Constructor
+	 */
 	public DataEntity(long id, String right, String left) {
 		this.id = id;
 		this.right = right;
 		this.left = left;
 	}
 
-	public interface DataEntityRepository
-	  extends JpaRepository<DataEntity, Long> { }
 
 }
 

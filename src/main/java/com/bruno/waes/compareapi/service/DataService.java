@@ -14,8 +14,9 @@ public interface DataService {
 	 * @author Bruno Camara.
 	 * @param 
 	 * @return List<DataEntity>
+	 * @throws Exception 
 	 */
-	public abstract List<DataEntity> getAllData();
+	public abstract List<DataEntity> getAllData() throws Exception;
 	
 	/**
 	 * 
@@ -25,7 +26,7 @@ public interface DataService {
 	 * @param id
 	 * @return DataEntity
 	 */
-	public abstract DataEntity getDataById(long id);
+	public abstract DataEntity getDataById(long id) throws Exception;
 		
 	/**
 	 * 
@@ -48,7 +49,7 @@ public interface DataService {
 	 * @return
 	 * Document
 	 */
-	 public abstract void delete(int id);
+	 public abstract void delete(int id) throws Exception;
 	 
 	 /**
 	 * 
@@ -60,6 +61,6 @@ public interface DataService {
 	 * @return String
 	 * Document
 	 */
-	 public abstract String baseDataDiff(DataEntity dataInput);
+	 public abstract String baseDataDiff(DataEntity dataInput) throws Exception;
 	
 }

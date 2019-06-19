@@ -28,16 +28,44 @@ public class DataServiceImpl implements DataService{
 
     //private static final Logger LOG = LoggerFactory.getLogger(DataServiceImpl.class);
     
-    public List<DataEntity> getAllData() {
+    
+    /**
+	 * 
+	 * Get all data from database
+	 *
+	 * @author Bruno Camara
+	 * @return List<DataEntity>
+	 * @throws Exception
+	 */
+    public List<DataEntity> getAllData() throws Exception{
         List<DataEntity> data = new ArrayList<DataEntity>();
         dataRepository.findAll().forEach(person -> data.add(person));
         return data;
     }
 
-    public DataEntity getDataById(long id) {
+    /**
+	 * 
+	 * Get data from a specific Id on database
+	 *
+	 * @author Bruno Camara
+	 * @param Id
+	 * @return DataEntity
+	 * @throws Exception
+	 */
+    public DataEntity getDataById(long id) throws Exception{
         return dataRepository.findById(id);
     }
 
+    /**
+	 * 
+	 * Save or update data on database
+	 *
+	 * @author Bruno Camara
+	 * @param dataInput
+	 * @param side
+	 * @return String
+	 * @throws Exception
+	 */
     public String saveOrUpdate(DataEntity dataInput, SideEnum side)throws Exception {
 
     	DataEntity dataBaseData = new DataEntity();
@@ -66,11 +94,29 @@ public class DataServiceImpl implements DataService{
     	return DATA_SUCESSFULY_SAVED;
     }
 
+    /**
+	 * 
+	 * Delete data on database
+	 *
+	 * @author Bruno Camara
+	 * @param Id
+	 * @throws Exception
+	 */
     public void delete(int id) {
     	dataRepository.deleteById(id);
     }
     
-    public String baseDataDiff(DataEntity dataInput) {
+    
+    /**
+	 * 
+	 * Find a difference on a base 64 data
+	 *
+	 * @author Bruno Camara
+	 * @param dataInput
+	 * @return String
+	 * @throws Exception
+	 */
+    public String baseDataDiff(DataEntity dataInput) throws Exception{
 		
 		DataEntity document = getDataById(dataInput.getId());
 		if (document == null) {
@@ -103,8 +149,16 @@ public class DataServiceImpl implements DataService{
 		return BASE64_SAME_SIZE_BUT_DIFFERENT_OFFSET + offsets;
 	}
     
-    
-    private boolean isContentAValidBase64(String content) {
+    /**
+	 * 
+	 * Verify if the data is based 64
+	 *
+	 * @author Bruno Camara
+	 * @param content
+	 * @return boolean
+	 * @throws Exception
+	 */
+    public boolean isContentAValidBase64(String content) throws Exception{
         try {
             Base64.getDecoder().decode(content);
         } catch (IllegalArgumentException e) {

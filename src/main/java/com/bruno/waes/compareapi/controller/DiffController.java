@@ -23,6 +23,13 @@ import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
 import static com.bruno.waes.compareapi.util.Constants.*;
 
+/**
+ * 
+ * Api Rest controller.  It maps all api endpoints Left, right and diff.
+ *
+ * @author Bruno Camara
+ */
+
 @RestController
 public class DiffController {
 	
@@ -36,10 +43,20 @@ public class DiffController {
 	}
 	
 
-  @ApiOperation(value = " ", notes = "Save a base64 data by id on the right size", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
+	/**
+	 * 
+	 * Post - Save a base64 data by id on the right size value
+	 *
+	 * @author Bruno Camara
+	 * @param id (Long) unique identifier. Will be updated if exists. 
+	 * @param data (ObjectDataTransfer) base64 data to save 
+	 * @return a rest response with Id, Side and Message
+	 * @throws Exception
+	 */
+  @ApiOperation(value = " ", notes = "Save a base64 data by id on the right size value", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
   @ApiImplicitParams(
 		  {@ApiImplicitParam(name = "Content-Type", required = true, dataType = "Long", paramType = "header", defaultValue = "application/json"),
-		   @ApiImplicitParam(name = "Content-Type", required = true, dataType = "String", paramType = "header", defaultValue = "application/json")}   
+		   @ApiImplicitParam(name = "Content-Type", required = true, dataType = "ObjectDataTransfer", paramType = "header", defaultValue = "application/json")}   
   )
   @ApiResponses(value = {
   		@ApiResponse(code = 200, message = "OK", response = DiffController.class),
@@ -65,10 +82,20 @@ public class DiffController {
 		return dataOutput;
 	}
 
-  @ApiOperation(value = " ", notes = "Save a base64 data by id on the left size", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
+    /**
+	 * 
+	 * Post - Save a base64 data by id on the left size value
+	 *
+	 * @author Bruno Camara
+	 * @param id (Long) unique identifier. Will be updated if exists. 
+	 * @param data (ObjectDataTransfer) base64 data to save 
+	 * @return a rest response with Id, Side and Message
+	 * @throws Exception
+	 */
+  @ApiOperation(value = " ", notes = "Save a base64 data by id on the left size value", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
   @ApiImplicitParams(
 		  {@ApiImplicitParam(name = "Content-Type", required = true, dataType = "Long", paramType = "header", defaultValue = "application/json"),
-		   @ApiImplicitParam(name = "Content-Type", required = true, dataType = "String", paramType = "header", defaultValue = "application/json")}   
+		   @ApiImplicitParam(name = "Content-Type", required = true, dataType = "ObjectDataTransfer", paramType = "header", defaultValue = "application/json")}   
   )
   @ApiResponses(value = {
   		@ApiResponse(code = 200, message = "OK", response = DiffController.class),
@@ -94,8 +121,17 @@ public class DiffController {
 		return dataOutput;
 	}
   
-   	
-  @ApiOperation(value = " ", notes = "List all diffs for a base64 string", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
+  
+    /**
+	 * 
+	 * Get - List all differences for a base64 string with the correspondent position
+	 *
+	 * @author Bruno Camara
+	 * @param id (Long) unique identifier. Will be updated if exists. 
+	 * @return a rest response with Id, Side and Message
+	 * @throws Exception
+	 */ 	
+  @ApiOperation(value = " ", notes = "List all differences for a base64 string with the correspondent position", response = DiffController.class, responseContainer = "List", tags = {"WaesJsonCompareApiChallenge"})
   @ApiImplicitParams(
 		  {@ApiImplicitParam(name = "Content-Type", required = true, dataType = "Long", paramType = "header", defaultValue = "application/json")}   
   )
