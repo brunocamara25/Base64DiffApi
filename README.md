@@ -1,6 +1,5 @@
 # Base64DiffApi
-
-This is a WAES challenge, the purpose is to save and compare base64 data from a Rest API with 2 endpoints.
+The purpose is to save and compare base64 data from a Rest API with 2 endpoints.
 
 ## Pre requisites
 
